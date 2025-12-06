@@ -1,7 +1,7 @@
 ﻿using ICSharpCode.Decompiler;
 using ICSharpCode.Decompiler.CSharp;
 
-namespace AlienBloxTools.Utilities.IncludedExes
+namespace AlienBloxTools.Utilities
 {
     public static class DLLExtract
     {
