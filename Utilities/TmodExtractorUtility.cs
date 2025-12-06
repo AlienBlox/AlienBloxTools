@@ -12,6 +12,11 @@ namespace AlienBloxTools.Utilities
         /// <returns>The task lol.</returns>
         public static async Task ExtractMod(string FileLocation, string FileName)
         {
+            if (!File.Exists($"{FileLocation}.tmod"))
+            {
+                return;
+            }
+
             await ExtractTmodFile(FileLocation);
 
             DLLExtract.DecompileDllToFolder($"{FileLocation}\\{FileName}.dll", FileLocation);
