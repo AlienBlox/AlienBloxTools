@@ -1,10 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	
-    <Import Project="Targets\tModLoader.targets"/>
+    <Import Project="Targets\tModLoader.targets" />
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
   </PropertyGroup>
+    <ItemGroup>
+      <Folder Include="Libraries\" />
+    </ItemGroup>
 
 </Project>
