@@ -4,12 +4,11 @@ namespace AlienBloxTools.Utilities
 {
     public class ConsoleSetup
     {
-        public static void RedirectConsole()
+        public static void RedirectConsole(string Msg)
         {
             using StreamWriter sw = new($"{Main.SavePath}\\AlienBloxTools\\Logs.txt");
-            Console.WriteLine("Redirecting console...");
-            Console.SetOut(sw);
-            Console.WriteLine("Redirected console");
+            Console.WriteLine();
+            Console.WriteLine(Msg);
         }
     }
 }
