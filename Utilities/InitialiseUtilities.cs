@@ -6,6 +6,10 @@ namespace AlienBloxTools.Utilities
     public static class InitialiseUtilities
     {
         /// <summary>
+        /// The default location for saving exes
+        /// </summary>
+        public static readonly string EXESaves = $"{Main.SavePath}\\AlienBloxTools\\Exes";
+        /// <summary>
         /// Extracts the tModUnpacker included with AlienBlox's Tools
         /// </summary>
         public static void ExtractTMODUnpacker()
@@ -24,9 +28,8 @@ namespace AlienBloxTools.Utilities
             Assembly assembly = Assembly.GetExecutingAssembly();
 
             // Full resource name usually: {DefaultNamespace}.{Folder}.{FileName}
-#pragma warning disable CS8600 // Converting null literal or possible null value to non-nullable type.
             using Stream resourceStream = assembly.GetManifestResourceStream(resourceName) ?? throw new Exception("Resource not found: " + resourceName);
-            using FileStream fileStream = new FileStream(outputPath, FileMode.Create, FileAccess.Write);
+            using FileStream fileStream = new(outputPath, FileMode.Create, FileAccess.Write);
             resourceStream.CopyTo(fileStream);
         }
     }
