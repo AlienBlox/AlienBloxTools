@@ -10,11 +10,12 @@
       <None Remove="Utilities\IncludedExes\tModUnpacker.exe" />
     </ItemGroup>
     <ItemGroup>
-      <Resource Include="Utilities\IncludedExes\tModUnpacker.exe" />
+      <Reference Include="ICSharpCode.Decompiler">
+        <HintPath>Library\ICSharpCode.Decompiler.dll</HintPath>
+      </Reference>
     </ItemGroup>
     <ItemGroup>
-      <PackageReference Include="ICSharpCode.Decompiler" Version="9.1.0.7988" />
+      <Resource Include="Utilities\IncludedExes\tModUnpacker.exe" />
     </ItemGroup>
-    
 
 </Project>
