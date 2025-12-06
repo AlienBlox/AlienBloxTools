@@ -1,20 +1,30 @@
 ﻿using System.Diagnostics;
-using Terraria;
-using Terraria.ID;
-using Terraria.ModLoader;
 
 namespace AlienBloxTools.Utilities
 {
     public static class TmodExtractorUtility
     {
         /// <summary>
+        /// Extracts a tMod file including the code.
+        /// </summary>
+        /// <param name="FileLocation">The location to extract to.</param>
+        /// <param name="FileName">The DLL file of the mod to extract</param>
+        /// <returns>The task lol.</returns>
+        public static async Task ExtractMod(string FileLocation, string FileName)
+        {
+            await ExtractTmodFile(FileLocation);
+
+            DLLExtract.DecompileDllToFolder($"{FileLocation}\\{FileName}.dll", FileLocation);
+        }
+
+        /// <summary>
         /// Extracts an entire tMod file
         /// </summary>
-        /// <param name="FileLocation">The location of the tMod file</param>
+        /// <param name="FileLocation">The location of the tMod file (No file extension)</param>
         /// <returns>The task.</returns>
         public static async Task ExtractTmodFile(string FileLocation)
         {
-            if (!File.Exists($"{InitialiseUtilities.EXESaves}\\tModUnpacker"))
+            if (!File.Exists($"{InitialiseUtilities.EXESaves}\\tModUnpacker.exe"))
             {
                 InitialiseUtilities.ExtractTMODUnpacker();
 
@@ -25,10 +35,10 @@ namespace AlienBloxTools.Utilities
             {
                 ProcessStartInfo startInfo = new()
                 {
-                    FileName = $"{InitialiseUtilities.EXESaves}\\tModUnpacker",
+                    FileName = $"{InitialiseUtilities.EXESaves}\\tModUnpacker.exe",
                     UseShellExecute = false,
                     RedirectStandardOutput = true,
-                    Arguments = FileLocation
+                    Arguments = $"{FileLocation}.tmod"
                 };
 
                 using Process process = new()
