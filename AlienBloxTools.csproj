@@ -7,7 +7,14 @@
         <Nullable>enable</Nullable>
   </PropertyGroup>
     <ItemGroup>
-      <Folder Include="Libraries\" />
+      <None Remove="Utilities\IncludedExes\tModUnpacker.exe" />
     </ItemGroup>
+    <ItemGroup>
+      <Resource Include="Utilities\IncludedExes\tModUnpacker.exe" />
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="ICSharpCode.Decompiler" Version="9.1.0.7988" />
+    </ItemGroup>
+    
 
 </Project>
