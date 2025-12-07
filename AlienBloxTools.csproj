@@ -11,10 +11,8 @@
         <HintPath>Library\ICSharpCode.Decompiler.dll</HintPath>
       </Reference>
     </ItemGroup>
-    <ItemGroup>
-      <Resource Include="Utilities\IncludedExes\tModUnpacker.exe">
-        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      </Resource>
-    </ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="Utilities\IncludedExes\tModUnpacker.exe" />
+	</ItemGroup>
 
 </Project>
