@@ -9,15 +9,16 @@ namespace AlienBloxTools.Utilities
         /// </summary>
         /// <param name="FileLocation">The location to extract to.</param>
         /// <param name="FileName">The DLL file of the mod to extract</param>
+        /// <param name="UtilityToExtractWith">The utility to extract the tMod file with</param>
         /// <returns>The task lol.</returns>
-        public static async Task ExtractMod(string FileLocation, string FileName)
+        public static async Task ExtractMod(string FileLocation, string FileName, string UtilityToExtractWith)
         {
             if (!File.Exists($"{FileLocation}.tmod"))
             {
                 return;
             }
 
-            await ExtractTmodFile(FileLocation);
+            await ExtractTmodFile(FileLocation, UtilityToExtractWith);
 
             DLLExtract.DecompileDllToFolder($"{FileLocation}\\{FileName}.dll", FileLocation);
         }
@@ -26,10 +27,11 @@ namespace AlienBloxTools.Utilities
         /// Extracts an entire tMod file
         /// </summary>
         /// <param name="FileLocation">The location of the tMod file (No file extension)</param>
+        /// <param name="UtilityToExtractWith">The utility to extract the tModLoader mod with</param>
         /// <returns>The task.</returns>
-        public static async Task ExtractTmodFile(string FileLocation)
+        public static async Task ExtractTmodFile(string FileLocation, string UtilityToExtractWith)
         {
-            if (!File.Exists($"{InitialiseUtilities.EXESaves}\\tModUnpacker.exe"))
+            if (!File.Exists(UtilityToExtractWith))
             {
                 InitialiseUtilities.ExtractTMODUnpacker();
 
@@ -40,7 +42,7 @@ namespace AlienBloxTools.Utilities
             {
                 ProcessStartInfo startInfo = new()
                 {
-                    FileName = $"{InitialiseUtilities.EXESaves}\\tModUnpacker.exe",
+                    FileName = UtilityToExtractWith,
                     UseShellExecute = false,
                     RedirectStandardOutput = true,
                     Arguments = $"{FileLocation}.tmod"
