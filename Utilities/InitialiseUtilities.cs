@@ -14,7 +14,7 @@ namespace AlienBloxTools.Utilities
         /// </summary>
         public static void ExtractTMODUnpacker()
         {
-            ExtractExe("AlienBloxTools.Utilities.tModUnpacker.exe", $"{Main.SavePath}\\AlienBloxTools\\Exes");
+            ExtractExe("AlienBloxTools.Utilities.IncludedExes.tModUnpacker.exe", $"{Main.SavePath}\\AlienBloxTools\\Exes");
         }
 
         /// <summary>
