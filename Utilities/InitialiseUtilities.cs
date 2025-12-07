@@ -37,5 +37,20 @@ namespace AlienBloxTools.Utilities
             using FileStream fileStream = new(outputPath, FileMode.Create, FileAccess.Write);
             resourceStream.CopyTo(fileStream);
         }
+
+        /// <summary>
+        /// Extracts a file from an assembly
+        /// </summary>
+        /// <param name="assembly">The assembly to extract</param>
+        /// <param name="contentToExtract">The content to extract</param>
+        /// <returns>The filestream of the item</returns>
+        /// <exception cref="Exception">The exception thrown.</exception>
+        public static Stream ExtractContentFromAssembly(Assembly assembly, string contentToExtract)
+        {
+            // Full resource name usually: {DefaultNamespace}.{Folder}.{FileName}
+            using Stream resourceStream = assembly.GetManifestResourceStream(contentToExtract) ?? throw new Exception("Resource not found: " + contentToExtract);
+
+            return resourceStream;
+        }
     }
 }
