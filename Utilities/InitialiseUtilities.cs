@@ -52,5 +52,17 @@ namespace AlienBloxTools.Utilities
 
             return resourceStream;
         }
+
+        /// <summary>
+        /// Extracts a file from this assembly
+        /// </summary>
+        /// <param name="contentToExtract">The content to extract</param>
+        /// <returns>The filestream of the item</returns>
+        /// <exception cref="Exception">The exception thrown.</exception>
+        public static Stream ExtractContentFromAssembly(string contentToExtract)
+        {
+            // Full resource name usually: {DefaultNamespace}.{Folder}.{FileName}
+            return ExtractContentFromAssembly(Assembly.GetExecutingAssembly(), contentToExtract);
+        }
     }
 }
