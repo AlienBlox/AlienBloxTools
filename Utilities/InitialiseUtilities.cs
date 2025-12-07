@@ -48,7 +48,7 @@ namespace AlienBloxTools.Utilities
         public static Stream ExtractContentFromAssembly(Assembly assembly, string contentToExtract)
         {
             // Full resource name usually: {DefaultNamespace}.{Folder}.{FileName}
-            using Stream resourceStream = assembly.GetManifestResourceStream(contentToExtract) ?? throw new Exception("Resource not found: " + contentToExtract);
+            Stream resourceStream = assembly.GetManifestResourceStream(contentToExtract) ?? throw new Exception("Resource not found: " + contentToExtract);
 
             return resourceStream;
         }
