@@ -38,14 +38,14 @@ namespace AlienBloxTools.Utilities
                 return;
             }
 
-            if (File.Exists(FileLocation))
+            if (File.Exists($"{FileLocation}.tmod"))
             {
                 ProcessStartInfo startInfo = new()
                 {
                     FileName = UtilityToExtractWith,
                     UseShellExecute = false,
                     RedirectStandardOutput = true,
-                    Arguments = $"{FileLocation}.tmod"
+                    Arguments = $"\"{FileLocation}.tmod\""
                 };
 
                 using Process process = new()
