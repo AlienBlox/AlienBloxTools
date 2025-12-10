@@ -43,7 +43,7 @@ namespace AlienBloxTools.Utilities
                 ProcessStartInfo startInfo = new()
                 {
                     FileName = UtilityToExtractWith,
-                    UseShellExecute = false,
+                    UseShellExecute = true,
                     RedirectStandardOutput = true,
                     Arguments = $"{FileLocation}.tmod"
                 };
