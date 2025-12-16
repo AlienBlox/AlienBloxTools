@@ -26,7 +26,7 @@ namespace AlienBloxTools
             {
                 object? Output = Info.GetValue(mod);
 
-                if (Output != null && Output is TmodFile file)
+                if (Output is TmodFile file)
                 {
                     return file;
                 }
